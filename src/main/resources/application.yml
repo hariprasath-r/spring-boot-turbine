@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: turbine-stream
+
+server:
+  port: 8989
+  
+turbine:
+  # metrics of services that needs to be shown with turbine
+  app-config:  movie-catalog-service
+  # creating a default cluster to be monitored in /turbine.stream
+  # if we need to create a new cluster, the endpoint changes
+  cluster-name-expression: new String("default")
