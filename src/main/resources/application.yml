@@ -15,6 +15,10 @@ turbine:
 stream:
   app:
     list: movie-catalog-service, movie-info-service, rating-data-service
+    description: "{ movieCatalogService: 'retrieves movie catalog', movieInfoService: 'retrieves movie information from TMDb', ratingsDataService: 'retrieves user ratings for movie id'}"
 
-  
-  
+db:
+  host: https://___
+  username: db-user
+  port: 1200
+  schema: NEW_SCHEMA

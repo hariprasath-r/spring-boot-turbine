@@ -3,10 +3,13 @@ package in.hp.boot.resources;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import in.hp.boot.configs.DBConfigs;
 
 @RestController
 @RequestMapping("/config")
@@ -26,8 +29,11 @@ public class SpringConfigurationDemo {
 	@Value("${stream.app.list}")
 	private List<String> appList;
 	
-	@Value("#{${apps.description}}")
+	@Value("#{${stream.app.description}}")
 	private Map<String, String> appDescription;
+	
+	@Autowired
+	private DBConfigs dbConfigs;
 	
 	@GetMapping("/details")
 	public String getDetails() {
@@ -35,5 +41,10 @@ public class SpringConfigurationDemo {
 				numberOfAppsRegisteredForStreaming + " : " +
 				appList + " : " +
 				appDescription;
+	}
+	
+	@GetMapping("/dbConfigs")
+	public String getDBConfigs() {
+		return dbConfigs.toString();
 	}
 }
