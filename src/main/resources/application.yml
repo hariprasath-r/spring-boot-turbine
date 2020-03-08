@@ -12,6 +12,12 @@ turbine:
   # if we need to create a new cluster, the endpoint changes
   cluster-name-expression: new String("default")
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 stream:
   app:
     list: movie-catalog-service, movie-info-service, rating-data-service
