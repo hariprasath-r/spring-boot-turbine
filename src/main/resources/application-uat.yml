@@ -1,0 +1,9 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: configprops, beans
+        
+db:
+  username: db-uat-user
+  port: 1221

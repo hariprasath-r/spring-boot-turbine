@@ -1,0 +1,10 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: configprops
+        
+db:
+  host: https://___
+  username: db-test-user
+  port: 1222

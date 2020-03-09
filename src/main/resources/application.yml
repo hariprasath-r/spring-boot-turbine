@@ -1,6 +1,10 @@
 spring:
   application:
     name: turbine-stream
+  profiles:
+    active:
+    - test  
+    - uat
     
 server:
   port: 8989
