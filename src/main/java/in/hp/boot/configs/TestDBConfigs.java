@@ -1,33 +1,28 @@
 package in.hp.boot.configs;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-/**
- * Annotation Configuration marks this class as spring configuration
- * TODO: Check what does that mean
- * 
- * Annotation @ConfigurationProperties allows spring to bind the properties with the value specified
- * The member variables will be binded to the properties under the value specified
- * We can inject this class and use the property values
- * 
- * @Profile annotation specifies that which bean to load for which profile
- * If there is no @Profile annotation default profile is taken by default
- * 
- * @author haripr
- *
- */
 @Configuration
-@ConfigurationProperties(value = "db")
-@Profile("default")
-public class DBConfigs implements DBConfiguration{
+@ConfigurationProperties("db")
+@Profile("test")
+public class TestDBConfigs implements DBConfiguration {
 	
+	@Value("test")
+	private String activeProfile;
 	private String host;
 	private String username;
 	private String schema;
 	private int port;
 	
+	public String getActiveProfile() {
+		return activeProfile;
+	}
+	public void setActiveProfile(String activeProfile) {
+		this.activeProfile = activeProfile;
+	}
 	public String getHost() {
 		return host;
 	}
@@ -52,10 +47,10 @@ public class DBConfigs implements DBConfiguration{
 	public void setPort(int port) {
 		this.port = port;
 	}
-
 	@Override
 	public String toString() {
-		return "DBConfigs [host=" + host + ", username=" + username + ", schema=" + schema + ", port=" + port + "]";
+		return "TestDBConfigs [activeProfile=" + activeProfile + ", host=" + host + ", username=" + username
+				+ ", schema=" + schema + ", port=" + port + "]";
 	}
 	
 }
