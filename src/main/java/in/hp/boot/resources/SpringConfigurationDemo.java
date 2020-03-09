@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +36,12 @@ public class SpringConfigurationDemo {
 	@Autowired
 	private DBConfiguration dbConfigs;
 	
+	/**
+	 * It is not recommended to use this way
+	 */
+	@Autowired
+	private Environment environment;
+	
 	@GetMapping("/details")
 	public String getDetails() {
 		return springApplicationName + " : " +
@@ -46,5 +53,15 @@ public class SpringConfigurationDemo {
 	@GetMapping("/dbConfigs")
 	public String getDBConfigs() {
 		return dbConfigs.toString();
+	}
+	
+	@GetMapping("/env")
+	public String getEnv() {
+		return environment.toString();
+	}
+	
+	@GetMapping("/activeProfiles")
+	public String[] getActiveProfiles() {
+		return environment.getActiveProfiles();
 	}
 }
