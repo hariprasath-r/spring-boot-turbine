@@ -1,10 +1,15 @@
 spring:
   application:
     name: turbine-stream
-  profiles:
-    active:
-    - test  
-    - uat
+  cloud:
+    config:
+      # by default it will look up to localhost:8888    
+      uri:
+      - http://localhost:8888
+#  profiles:
+#    active:
+#    - test  
+#    - uat
     
 server:
   port: 8989
