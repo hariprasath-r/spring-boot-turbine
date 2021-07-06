@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.hp.boot</groupId>
-	<artifactId>spring-boot-turbine</artifactId>
+	<artifactId>spring-cloud-turbine</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-turbine</name>
-	<description>Demo project for Spring Boot Turbine</description>
+	<name>spring-cloud-turbine</name>
+	<description>Demo project for Spring Cloud Turbine</description>
 
 	<properties>
 		<java.version>11</java.version>
